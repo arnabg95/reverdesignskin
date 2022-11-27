@@ -86,3 +86,10 @@ hr{
     border-color: #C8373B !important;
     box-shadow: 0 0 0 .25rem #c8373cab;
 }
+
+.errors{
+    color: #C8373B;
+    margin-left: 10 !important;
+    font-size: 15px;
+    display: block;
+}

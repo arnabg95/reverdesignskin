@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
+import useAuthContext from "../../Hook/useAuthContext";
+
 export default function Header() {
+  const authCtx = useAuthContext();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:"#c8373b"}}>
       <div className="container">
@@ -29,6 +32,8 @@ export default function Header() {
               <i className="fa-solid fa-shop"></i> Shop
               </NavLink>
             </li>
+            { authCtx.isLoggedIn ? null:  (
+              <>  
             <li className="nav-item">
               <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link" } aria-current="page" to={"/login"}>
               <i className="fa-solid fa-right-to-bracket"></i> Login
@@ -39,6 +44,7 @@ export default function Header() {
               <i className="fa-solid fa-user-plus"></i> Register
               </NavLink>
             </li>
+            </>)  }
             <li className="nav-item">
               <NavLink className="nav-link btn-success" aria-current="page" to={"/selfdesign"}>
                  Make Your Own Design
